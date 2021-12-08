@@ -14,12 +14,27 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Register the location for handlebars partials here:
 
-// ...
+app.get('/beers', (req, res, next) => {
+  res.render('./beers/beers-page');
+});
+
+app.get('/random-beer', (req, res, next) => {
+  res.render('./random/random-beer');
+});
+
+// ..
 
 // Add the route handlers here:
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('/', (req, res, next) => {
+  res.render('../views/index');
 });
 
 app.listen(3000, () => console.log('🏃‍ on port 3000'));
+
+
+
+
+
+
+
